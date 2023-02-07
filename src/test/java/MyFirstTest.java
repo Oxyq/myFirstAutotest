@@ -17,15 +17,15 @@ public class MyFirstTest {
             void TestFormer() {
         open("/automation-practice-form"); // open page for test
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form")); // Check opened page
+
         executeJavaScript("$('footer').remove()"); //del footer
         executeJavaScript("$('#fixedban').remove()"); //del banners
 
         $("#firstName").setValue("name");
         $("#lastName").setValue("last");
-
         $("#userEmail").setValue("email@email.com");
-        $(byText("Male")).click(); // выбор пола
-
+        // $(byText("Male")).click(); // выбор пола
+        $x("//label[@for='gender-radio-1']").click(); // выбор пола xpath
         $("#userNumber").setValue("9999999999");
 
 
