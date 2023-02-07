@@ -1,0 +1,22 @@
+
+plugins {
+    id 'java-library' // используем библиотку явы
+}
+
+repositories {
+    mavenCentral() // используем репозиторий мавена
+}
+dependencies {
+    testImplementation (
+            'org.junit.jupiter:junit-jupiter:5.9.2', // подлючаем библиотеку джиюнит для тестов
+            'com.codeborne:selenide:6.11.2', // подключаем селенид для работы с браузером и формами
+            'org.slf4j:slf4j-simple:2.0.5'
+    )
+}
+test {
+    useJUnitPlatform() // обозначаем что для тестов испольуем джиюнит библиотеки
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8' // подключаем кодировку для кириллицы
+}
