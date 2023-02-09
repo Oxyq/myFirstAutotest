@@ -1,6 +1,7 @@
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.devtools.v109.css.model.Value;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -33,6 +34,10 @@ public class MyFirstTest {
         $("select[class='react-datepicker__year-select']").$("option[value='1986']").click(); // install 1986 y
         $("select[class='react-datepicker__month-select']").$("option[value='10']").click(); // install nov
         $x("//*[@id=\"dateOfBirth\"]/div[2]/div[2]/div/div/div[2]/div[2]/div[3]/div[2]").click(); // install 10
+        $("#subjectsInput").setValue("Maths").pressEnter();
+
+
+
          $(byText("Sports")).click(); // check sports in hobbies
         $("#currentAddress").setValue("Adress 1");
 
@@ -51,14 +56,13 @@ System.out.println("Простые текстовые поля были прот
         $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
         $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("7777777777"));
         $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("10 November,1986"));
+        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("Maths"));
+        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports"));
+        $(".table-responsive").$(byText("Address")).parent().shouldHave(text("Adress 1"));
+        $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("NCR Noida"));
 
-
-
-        $(".table-responsive").$(byText("Student Email")).preceding(0).shouldHave(text("email@email.com"));
+        System.out.println("Проверка таблицы окончена все ок");
+$("#closeLargeModal").click();
 
   }
-    @Test
-    void TestCalendar(){
-
-    }
 }
