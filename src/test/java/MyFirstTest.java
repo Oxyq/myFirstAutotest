@@ -12,6 +12,7 @@ public class MyFirstTest {
 
         Configuration.baseUrl="https://demoqa.com";
         Configuration.browserSize="1920x1080";
+      Configuration.holdBrowserOpen = true;
     }
     @Test
             void TestFormer() {
@@ -35,9 +36,27 @@ public class MyFirstTest {
          $(byText("Sports")).click(); // check sports in hobbies
         $("#currentAddress").setValue("Adress 1");
 
-        $("#react-select-3-input").setValue("NCR");
+
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Noida")).click();
+
+        $(byText("Submit")).click();
+
 System.out.println("Простые текстовые поля были протестированы");
-    }
+
+        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("name last"));
+        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text("email@email.com"));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("7777777777"));
+        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("10 November,1986"));
+
+
+
+        $(".table-responsive").$(byText("Student Email")).preceding(0).shouldHave(text("email@email.com"));
+
+  }
     @Test
     void TestCalendar(){
 
