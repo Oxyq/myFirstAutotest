@@ -17,8 +17,8 @@ public class MyFirstTest {
     }
     @Test
             void TestFormer() {
-        open("/automation-practice-form"); // open page for test
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form")); // Check opened page
+        open("/automation-practice-form"); // open page 878976765for test
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form")); // Check opened000 page
 
         executeJavaScript("$('footer').remove()"); //del footer
         executeJavaScript("$('#fixedban').remove()"); //del banners
